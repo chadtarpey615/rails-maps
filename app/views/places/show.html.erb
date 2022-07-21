@@ -1,6 +1,26 @@
+<% provide :head_tags do %>
+<script>
+  document.addEventListener("DOMContentLoaded", function ()
+  {
+    initMap(<%=@place.latitude%>, <%=@place.longitude%>)
+    });
+</script>
+<% end %>
+
+
+
+
 <p style="color: green"><%= notice %></p>
 
 <%= render @place %>
+
+<p>
+  <!-- <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C
+  #{@place.latitude},#{@place.longitude}&key=AIzaSyDDeEWPKn1PTwrvcSEn4zLP28zvJu0LIcE",
+   alt: "Map" %> -->
+<div id="map"></div>
+</p>
+
 
 <div>
   <%= link_to "Edit this place", edit_place_path(@place) %> |
